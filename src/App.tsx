@@ -181,11 +181,6 @@ function Hero() {
             <div className="hero__content">
               <div className="container">
                 <div className="hero__content-inner">
-                  <div className="hero__meta fade-in-up">
-                    <span className="hero__meta-label">Series 04</span>
-                    <span className="hero__meta-divider"></span>
-                    <span className="hero__meta-year">Est. 2011</span>
-                  </div>
                   <span className="section-label hero__label fade-in-up stagger-1">Signature Collection</span>
                   <h1 className="fade-in-up stagger-2">{slide.title}</h1>
                   <p className="fade-in-up stagger-3">{slide.subtitle}</p>
