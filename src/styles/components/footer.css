@@ -30,6 +30,23 @@
   letter-spacing: 0.05em;
 }
 
+.footer__brand-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+  text-shadow: 0 0 30px rgba(216, 195, 145, 0.1);
+}
+
+.footer__brand-text--small {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 500;
+}
+
 .footer__logo-img {
   width: 48px;
   height: 48px;

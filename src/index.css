@@ -6,12 +6,15 @@
   --sage-green: #8BA870;
   --olive-dark: #4B633A;
   --gold-champagne: #B59A5D;
+  --gold: #B59A5D;
   
   --black: #162119;
   --black-soft: #2C362F;
   --stone: #44403C;
   --white: #FFFFFF;
   --off-white: #E9E3D6;
+
+  --gold-gradient: linear-gradient(135deg, #B59A5D 0%, #F5E6AD 50%, #B59A5D 100%);
 
   --font-display: 'Cormorant Garamond', serif;
   --font-body: 'Jost', sans-serif;

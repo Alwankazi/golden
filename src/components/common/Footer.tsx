@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="footer__brand">
             <div className="footer__logo">
               <img src={goldenLogo} alt="Golden Bouquet" className="footer__logo-img" />
-              <span>Golden Bouquet</span>
+              <span className="footer__brand-text">Golden Bouquet</span>
               <sup>®</sup>
             </div>
             <p>The world's most sculptural roses, elegantly curated for life's meaningful moments.</p>
@@ -49,7 +49,7 @@ export default function Footer() {
           ))}
         </div>
         <div className="footer__bottom">
-          <p>© {new Date().getFullYear()} Golden Bouquet. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} <span className="footer__brand-text--small">Golden Bouquet</span>. All rights reserved.</p>
           <div className="footer__legal">
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>
