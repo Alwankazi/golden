@@ -361,12 +361,8 @@
 
 .products__grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 80px 40px;
-}
-
-.product-card:nth-child(even) {
-  margin-top: 60px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 24px;
 }
 
 .product-card {
@@ -446,14 +442,12 @@
 }
 
 @media (max-width: 1024px) {
-  .products__grid { gap: 40px 20px; }
-  .product-card:nth-child(even) { margin-top: 30px; }
+  .products__grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
 }
 
 @media (max-width: 600px) {
   .products { padding: 60px 0; }
   .products__grid { grid-template-columns: 1fr; gap: 40px; }
-  .product-card:nth-child(even) { margin-top: 0; }
 }
 
 /* Lifestyle */
