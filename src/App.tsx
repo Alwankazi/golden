@@ -164,6 +164,12 @@ function Navigation() {
           ))}
         </ul>
 
+        <ul className={`nav__links nav__links--mobile ${menuOpen ? 'nav__links--open' : ''}`}>
+          {navLinks.map(link => (
+            <li key={link.label}><a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a></li>
+          ))}
+        </ul>
+
         <button className="nav__menu-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
           <span></span>
           <span></span>
@@ -278,6 +284,10 @@ function Hero() {
 
 function FeaturedArrangements() {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
+
+  const minSwipeDistance = 50
 
   const nextSlide = () => {
     setActiveSlide((prev) => (prev + 1) % featuredArrangements.length)
@@ -285,6 +295,24 @@ function FeaturedArrangements() {
 
   const prevSlide = () => {
     setActiveSlide((prev) => (prev - 1 + featuredArrangements.length) % featuredArrangements.length)
+  }
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+    if (isLeftSwipe) nextSlide()
+    if (isRightSwipe) prevSlide()
   }
 
   return (
@@ -310,6 +338,9 @@ function FeaturedArrangements() {
             <div 
               className="featured__carousel-track" 
               style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+              onTouchStart={onTouchStart}
+              onTouchMove={onTouchMove}
+              onTouchEnd={onTouchEnd}
             >
               {featuredArrangements.map((item, index) => (
                 <div key={index} className="featured__card-wrapper">
@@ -707,7 +738,8 @@ function Footer() {
     contact: [
       { label: "Contact Us", href: "#contact" },
       { label: "WhatsApp", href: "#" },
-      { label: "hello@onlyroses.com", href: "mailto:hello@onlyroses.com" }
+      { label: "info@golden-bouquet.com", href: "mailto:info@golden-bouquet.com" },
+      { label: "+974 7475 8555", href: "tel:+97474758555" }
     ]
   }
 
@@ -717,13 +749,29 @@ function Footer() {
         <div className="footer__grid">
           <div className="footer__brand">
             <div className="footer__logo">
+              <img src={goldenLogo} alt="Golden Bouquet" className="footer__logo-img" />
               <span>Golden Bouquet</span><sup>®</sup>
             </div>
             <p>The world's most sculptural roses, elegantly curated for life's meaningful moments.</p>
             <div className="footer__social">
-              <a href="#" aria-label="Instagram">IG</a>
-              <a href="#" aria-label="Facebook">FB</a>
-              <a href="#" aria-label="Pinterest">PI</a>
+              <a href="#" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17" cy="7" r="1" />
+                </svg>
+              </a>
+              <a href="#" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                  <path d="M15 3h-3a4 4 0 00-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 011-1h3" />
+                </svg>
+              </a>
+              <a href="#" aria-label="Pinterest">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                  <path d="M12 3a9 9 0 00-3.2 17.4l1.2-4.4a4.7 4.7 0 111.8 1" />
+                  <path d="M12 9.2c-1.7 0-2.8 1.6-2.4 3.1.4 1.5 1.2 2.6 1 3.9" />
+                </svg>
+              </a>
             </div>
           </div>
           {Object.entries(footerLinks).map(([title, links]) => (

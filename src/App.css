@@ -89,6 +89,10 @@
   padding-left: 80px;
 }
 
+.nav__links--mobile {
+  display: none;
+}
+
 @media (max-width: 1024px) {
   .nav {
     padding: 16px 0;
@@ -117,10 +121,30 @@
     z-index: 9;
     text-align: center;
     gap: 40px;
+    overflow-y: auto; /* Prevent cut-off on small height screens */
+  }
+
+  .nav__links--left,
+  .nav__links--right {
+    display: none;
+  }
+
+  .nav__links--mobile {
+    display: none;
+  }
+
+  .nav__links--mobile.nav__links--open {
+    display: flex;
+  }
+
+  .nav__links--open li {
+    display: block;
+    width: 100%;
   }
 
   .nav__links--open a {
     font-size: 1.5rem;
+    display: inline-block;
   }
 
   .nav__logo {
@@ -193,25 +217,10 @@
 
 @media (max-width: 900px) {
   .nav { padding: 16px 20px; }
-  .nav__links {
-    position: fixed;
+  .nav__links--mobile {
     top: 60px;
-    left: 0;
-    right: 0;
-    background: var(--black);
-    flex-direction: column;
-    padding: 24px;
-    gap: 20px;
+    padding: 80px 24px 40px;
     box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    transform: translateY(-20px);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s var(--ease-out-expo);
-  }
-  .nav__links--open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: all;
   }
   .nav__menu-btn { display: flex; }
 }
@@ -516,13 +525,17 @@
 /* Occasions Carousel */
 .occasions {
   padding: 100px 0;
-  background: var(--white);
+  background: #162119; /* Refined soft olive green */
   overflow: hidden;
 }
 
 .occasions__header {
   text-align: center;
   margin-bottom: 60px;
+}
+
+.occasions__header h2 {
+  color: var(--off-white);
 }
 
 .occasions__carousel-wrapper {
@@ -592,6 +605,15 @@
 }
 
 @media (max-width: 640px) {
+  .occasions__carousel-wrapper {
+    margin: 0;
+    padding: 0 16px;
+  }
+
+  .occasions__carousel {
+    padding: 20px 0;
+  }
+
   .occasion-card {
     flex: 0 0 calc(80% - 12px);
   }
@@ -600,7 +622,7 @@
 /* Gift Ideas Slider */
 .gift-ideas {
   padding: 100px 0;
-  background: var(--soft-pink);
+  background: var(--white);
   overflow: hidden;
 }
 
@@ -1060,6 +1082,7 @@
 /* Trending */
 .trending {
   padding: 100px 0;
+  background: #F4F3EF; /* Stone paper feel */
 }
 
 .trending__header {
@@ -1171,6 +1194,7 @@
 /* FAQ */
 .faq {
   padding: 100px 0;
+  background: #FDFCFB; /* Warm glow */
 }
 
 .faq__header {
@@ -1331,9 +1355,19 @@
 }
 
 .footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-display);
   font-size: 1.75rem;
   letter-spacing: 0.05em;
+}
+
+.footer__logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.35));
 }
 
 .footer__logo sup {
@@ -1359,6 +1393,11 @@
   font-size: 0.75rem;
   font-weight: 600;
   transition: all 0.3s var(--ease-out-expo);
+}
+
+.footer__social svg {
+  width: 18px;
+  height: 18px;
 }
 
 .footer__social a:hover {
@@ -1457,7 +1496,7 @@
 /* Featured Arrangements Carousel */
 .featured {
   padding: 100px 0;
-  background: var(--white);
+  background: #F0F2ED; /* Subtle Sage Tint */
   overflow: hidden;
 }
 
@@ -1608,11 +1647,7 @@
 }
 
 .featured__nav {
-  position: absolute;
-  bottom: -60px;
-  right: 40px;
-  display: flex;
-  gap: 20px;
+  display: none;
 }
 
 .featured__nav-btn {
@@ -1668,188 +1703,3 @@
   }
 }
 
-/* Occasions Carousel */
-.occasions {
-  padding: 80px 0;
-  background: var(--white);
-  text-align: center;
-}
-
-.occasions__carousel-wrapper {
-  overflow: hidden;
-  padding: 40px 0;
-  position: relative;
-}
-
-.occasions__carousel {
-  display: flex;
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.occasions__item {
-  flex: 0 0 250px;
-  padding: 0 15px;
-}
-
-.occasions__circle {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  overflow: hidden;
-  position: relative;
-  margin: 0 auto;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-  transition: transform 0.4s ease;
-}
-
-.occasions__circle:hover {
-  transform: translateY(-10px);
-}
-
-.occasions__circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
-
-.occasions__circle:hover img {
-  transform: scale(1.1);
-}
-
-.occasions__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 1;
-}
-
-.occasions__name {
-  color: var(--white);
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-.occasions__dots {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 40px;
-}
-
-.occasions__dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #E5E7EB;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.occasions__dot.active {
-  background: var(--primary-pink);
-  transform: scale(1.5);
-}
-
-/* Gift Ideas Slider */
-.gift-ideas {
-  padding: 100px 0;
-  background: #F9FAFB;
-}
-
-.gift-ideas__slider-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-top: 50px;
-}
-
-.gift-ideas__track-wrapper {
-  flex: 1;
-  overflow: hidden;
-}
-
-.gift-ideas__track {
-  display: flex;
-  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.gift-ideas__item {
-  text-align: center;
-  padding: 0 20px;
-}
-
-.gift-ideas__oval {
-  aspect-ratio: 3/4;
-  background: #E8EDE9; /* Sage Green Tint */
-  border-radius: 1000px; /* Forces Oval */
-  overflow: hidden;
-  margin-bottom: 24px;
-  transition: all 0.5s ease;
-  position: relative;
-}
-
-.gift-ideas__oval:hover {
-  transform: scale(0.98);
-  background: #DDE4DE;
-}
-
-.gift-ideas__oval img {
-  width: 80%;
-  height: 80%;
-  object-fit: contain;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.6s ease;
-}
-
-.gift-ideas__item:hover img {
-  transform: translate(-50%, -60%) scale(1.1);
-}
-
-.gift-ideas__item h3 {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: var(--black);
-}
-
-.gift-ideas__nav {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border: 1px solid #E5E7EB;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.gift-ideas__nav:hover {
-  background: var(--black);
-  color: var(--white);
-  border-color: var(--black);
-}
-
-@media (max-width: 1024px) {
-  .occasions__item { flex: 0 0 50%; }
-}
-
-@media (max-width: 640px) {
-  .occasions__item { flex: 0 0 100%; }
-  .gift-ideas__nav { display: none; }
-}
