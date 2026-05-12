@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 
+import goldenLogo from './assets/golden-logo.png'
 import hero1 from './assets/hero-img/anthony-fomin-h7_SyoBhHF0-unsplash.jpg'
 import hero2 from './assets/hero-img/christina-dahl-XBTaVeWCQ-s-unsplash.jpg'
 import hero3 from './assets/hero-img/jessie-daniella-aiNU4cA4UzQ-unsplash.jpg'
@@ -27,13 +28,6 @@ const heroSlides = [
     subtitle: "Curated elegance for life's most meaningful moments.",
     image: hero4
   }
-]
-
-const testimonials = [
-  { text: "The most stunning roses I've ever received. They arrived under a glass dome, packaged like royalty.", author: "Victoria H.", rating: 5 },
-  { text: "Three years later, my roses still look fresh. The quality is unparalleled.", author: "Elizabeth R.", rating: 5 },
-  { text: "Perfect for corporate gifting. Our clients were thoroughly impressed.", author: "Jonathan M.", rating: 5 },
-  { text: "The infinite roses are truly magical. A statement piece in my home.", author: "Sarah L.", rating: 5 }
 ]
 
 const products = [
@@ -99,6 +93,40 @@ const trustBadges = [
   }
 ]
 
+const featuredArrangements = [
+  {
+    category: "Bestseller",
+    name: "Classic Crimson Luxe",
+    image: "/images/product_classic_red_1778579071178.png"
+  },
+  {
+    category: "New Trends",
+    name: "Sculptural Mixed Flora",
+    image: "/images/rose_hero_sculptural_1778579019983.png"
+  },
+  {
+    category: "New Products",
+    name: "Golden Infinite Bloom",
+    image: "/images/rose_hero_infinite_gold_1778579053174.png"
+  }
+]
+
+const occasions = [
+  { name: "Graduation", image: "/images/blog_studio_process_1778579181255.png" },
+  { name: "Birthday", image: "/images/rose_hero_bouquet_luxury_1778579035653.png" },
+  { name: "New Born", image: "/images/occasion_newborn.png" },
+  { name: "Valentine", image: "/images/product_classic_red_1778579071178.png" }
+]
+
+const giftIdeas = [
+  { name: "Hand Made Bouquet", price: "$120", image: "/images/rose_hero_bouquet_luxury_1778579035653.png" },
+  { name: "Special Chocolates", price: "$45", image: "/images/corporate_rose_gift_1778579217711.png" },
+  { name: "Flowers With Vase", price: "$180", image: "/images/lifestyle_rose_interior_1778579122104.png" },
+  { name: "Customized Cakes", price: "$95", image: "/images/rose_hero_sculptural_1778579019983.png" },
+  { name: "Luxury Candles", price: "$65", image: "/images/product_infinite_white_1778579086264.png" },
+  { name: "Gift Card", price: "$50+", image: "/images/rose_hero_infinite_gold_1778579053174.png" }
+]
+
 function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
@@ -120,15 +148,22 @@ function Navigation() {
   return (
     <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
       <div className="nav__container container">
-        <a href="#" className="nav__logo">
-          <span className="nav__logo-text">Golden Bouquet</span>
-          <span className="nav__logo-accent">®</span>
-        </a>
-        <ul className={`nav__links ${menuOpen ? 'nav__links--open' : ''}`}>
-          {navLinks.map(link => (
+        <ul className={`nav__links nav__links--left ${menuOpen ? 'nav__links--open' : ''}`}>
+          {navLinks.slice(0, 3).map(link => (
             <li key={link.label}><a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a></li>
           ))}
         </ul>
+
+        <a href="#" className="nav__logo">
+          <img src={goldenLogo} alt="Golden Bouquet" className="nav__logo-img" />
+        </a>
+
+        <ul className={`nav__links nav__links--right ${menuOpen ? 'nav__links--open' : ''}`}>
+          {navLinks.slice(3).map(link => (
+            <li key={link.label}><a href={link.href} onClick={() => setMenuOpen(false)}>{link.label}</a></li>
+          ))}
+        </ul>
+
         <button className="nav__menu-btn" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">
           <span></span>
           <span></span>
@@ -241,6 +276,158 @@ function Hero() {
   )
 }
 
+function FeaturedArrangements() {
+  const [activeSlide, setActiveSlide] = useState(0)
+
+  const nextSlide = () => {
+    setActiveSlide((prev) => (prev + 1) % featuredArrangements.length)
+  }
+
+  const prevSlide = () => {
+    setActiveSlide((prev) => (prev - 1 + featuredArrangements.length) % featuredArrangements.length)
+  }
+
+  return (
+    <section className="featured">
+      <div className="featured__container">
+        <div className="featured__left">
+          <div className="featured__content">
+            <span className="section-label featured__label">Signature Creations</span>
+            <h2 className="featured__title">FRESHNESS IN EVERY BLOOM</h2>
+            <p className="featured__subtitle">EXQUISITE FLORAL ARRANGEMENTS FOR EVERY OCCASION</p>
+            <a href="#archive" className="featured__cta">
+              OUR BLOOM ARCHIVE
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div className="featured__right">
+          <div className="featured__carousel">
+            <div 
+              className="featured__carousel-track" 
+              style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+            >
+              {featuredArrangements.map((item, index) => (
+                <div key={index} className="featured__card-wrapper">
+                  <div className="featured__card">
+                    <div className="featured__card-image-box">
+                      <img src={item.image} alt={item.name} className="featured__card-img" />
+                      <div className="featured__card-logo">GB</div>
+                    </div>
+                    <div className="featured__card-info">
+                      <span className="featured__card-category">{item.category}</span>
+                      <h3 className="featured__card-name">{item.name}</h3>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="featured__nav">
+              <button 
+                className="featured__nav-btn featured__nav-btn--prev" 
+                onClick={prevSlide}
+                aria-label="Previous arrangement"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+              <button 
+                className="featured__nav-btn featured__nav-btn--next" 
+                onClick={nextSlide}
+                aria-label="Next arrangement"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function OccasionsCarousel() {
+  return (
+    <section className="occasions">
+      <div className="container">
+        <header className="occasions__header">
+          <span className="section-label">Celebrate</span>
+          <h2>GIFTS FOR EVERY MOMENT!</h2>
+        </header>
+        <div className="occasions__carousel-wrapper">
+          <div className="occasions__carousel">
+            {occasions.map((occasion) => (
+              <div key={occasion.name} className="occasion-card">
+                <div className="occasion-card__image">
+                  <img src={occasion.image} alt={occasion.name} loading="lazy" />
+                  <div className="occasion-card__overlay">
+                    <h3>{occasion.name}</h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function GiftIdeasSlider() {
+  return (
+    <section className="gift-ideas">
+      <div className="container">
+        <header className="gift-ideas__header">
+          <span className="section-label">Selected for you</span>
+          <h2>Explore Unique Gift Ideas</h2>
+        </header>
+        
+        <div className="gift-ideas__stacked-container">
+          {/* Top Row: First 3 items */}
+          <div className="gift-ideas__row">
+            {giftIdeas.slice(0, 3).map((item) => (
+              <div key={item.name} className="gift-card gift-card--stacked">
+                <div className="gift-card__inner">
+                  <div className="gift-card__image">
+                    <img src={item.image} alt={item.name} loading="lazy" />
+                  </div>
+                  <div className="gift-card__info">
+                    <h3>{item.name}</h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Row: Next 3 items */}
+          <div className="gift-ideas__row">
+            {giftIdeas.slice(3, 6).map((item) => (
+              <div key={item.name} className="gift-card gift-card--stacked">
+                <div className="gift-card__inner">
+                  <div className="gift-card__image">
+                    <img src={item.image} alt={item.name} loading="lazy" />
+                  </div>
+                  <div className="gift-card__info">
+                    <h3>{item.name}</h3>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function SocialProof() {
   return (
     <section className="social-proof">
@@ -252,36 +439,6 @@ function SocialProof() {
           <span className="social-proof__rating">5.0</span>
         </div>
         <p className="social-proof__text">Trusted by discerning clients worldwide</p>
-      </div>
-    </section>
-  )
-}
-
-function Testimonials() {
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) setVisible(true) }, { threshold: 0.1 })
-    const el = document.getElementById('testimonials')
-    if (el) observer.observe(el)
-    return () => observer.disconnect()
-  }, [])
-
-  return (
-    <section id="testimonials" className={`testimonials ${visible ? 'visible' : ''}`}>
-      <div className="container">
-        <h2 className="testimonials__title fade-in-up">What Our Clients Say</h2>
-        <div className="testimonials__grid">
-          {testimonials.map((t, i) => (
-            <blockquote key={i} className={`testimonial fade-in-up stagger-${i + 1}`}>
-              <div className="testimonial__stars">
-                {[...Array(t.rating)].map((_, j) => <span key={j}>★</span>)}
-              </div>
-              <p className="testimonial__text">"{t.text}"</p>
-              <cite className="testimonial__author">{t.author}</cite>
-            </blockquote>
-          ))}
-        </div>
       </div>
     </section>
   )
@@ -606,8 +763,10 @@ function App() {
       <Navigation />
       <main>
         <Hero />
+        <FeaturedArrangements />
+        <OccasionsCarousel />
+        <GiftIdeasSlider />
         <SocialProof />
-        <Testimonials />
         <Products />
         <Lifestyle />
         <Newsletter />
