@@ -1,17 +1,19 @@
 export const navLinks = [
-  { label: 'Classic Roses', href: '#products' },
-  { label: 'Infinite Roses', href: '#products' },
-  { label: 'Fill Your Vase', href: '#products' },
-  { label: 'Gift Cards', href: '#products' },
+  { label: 'Floral Essentials', href: '#products' },
+  { label: 'Cakes & Delights', href: '#products' },
+  { label: 'Green Heaven', href: '#products' },
+  { label: 'Gifts & Combos', href: '#products' },
+  { label: 'Events', href: '#products' },
   { label: 'Contact', href: '#contact' },
 ]
 
 export const footerLinks = {
   shop: [
-    { label: 'Classic Roses', href: '#' },
-    { label: 'Infinite Roses', href: '#' },
-    { label: 'Fill Your Vase', href: '#' },
-    { label: 'Gift Cards', href: '#' },
+    { label: 'Floral Essentials', href: '#' },
+    { label: 'Cakes & Delights', href: '#' },
+    { label: 'Green Heaven', href: '#' },
+    { label: 'Gifts & Combos', href: '#' },
+    { label: 'Events', href: '#' },
   ],
   about: [
     { label: 'What We Do', href: '#' },

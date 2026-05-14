@@ -51,18 +51,18 @@
 .nav__links {
   display: flex;
   list-style: none;
-  gap: 36px;
+  gap: 28px;
   flex: 1;
 }
 
 .nav__links--left {
   justify-content: flex-start;
-  padding-right: 80px;
+  padding-right: 60px;
 }
 
 .nav__links--right {
   justify-content: flex-end;
-  padding-left: 80px;
+  padding-left: 60px;
 }
 
 .nav__links--mobile {
