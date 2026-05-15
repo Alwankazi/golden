@@ -31,7 +31,6 @@ export default function Products() {
               <div className="product-card__info">
                 <h3>{p.name}</h3>
                 <p className="product-card__desc">{p.desc}</p>
-                <span className="product-card__price">{p.price}</span>
               </div>
               <button className="product-card__btn">Quick Buy</button>
             </article>

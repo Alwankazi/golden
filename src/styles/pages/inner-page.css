@@ -1,0 +1,130 @@
+.floral-page {
+  padding-bottom: 120px;
+  min-height: 80vh;
+  background: var(--white);
+}
+
+.floral-page__header-wrapper {
+  background: linear-gradient(to bottom, rgb(22, 33, 25) 0%, rgba(22, 33, 25, 0.8) 50%, var(--white) 100%);
+  padding-top: 160px;
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+}
+
+.floral-page__header {
+  text-align: center;
+}
+
+.floral-page__header h1 {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--white);
+  margin-bottom: 16px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.floral-page__header p {
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.floral-filters {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.floral-filter-btn {
+  padding: 8px 24px;
+  border: 1px solid var(--black-soft);
+  background: transparent;
+  color: var(--black);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.floral-filter-btn:hover,
+.floral-filter-btn.active {
+  background: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+.floral-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px 24px;
+}
+
+.floral-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.floral-card__image-wrapper {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  margin-bottom: 20px;
+  background: #f8f8f8;
+}
+
+.floral-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.floral-card:hover .floral-card__image {
+  transform: scale(1.05);
+}
+
+.floral-card__category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--black-soft);
+  margin-bottom: 8px;
+}
+
+.floral-card__title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+}
+
+.floral-card__desc {
+  font-size: 0.875rem;
+  color: var(--black-soft);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.floral-card__btn {
+  align-self: flex-start;
+  padding: 10px 20px;
+  background: var(--sage-green);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: background 0.3s ease;
+}
+
+.floral-card__btn:hover {
+  background: var(--primary-pink);
+}
+
+@media (max-width: 768px) {
+  .floral-page__header h1 {
+    font-size: 2.5rem;
+  }
+}

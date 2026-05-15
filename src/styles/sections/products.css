@@ -67,11 +67,6 @@
   margin-bottom: 12px;
 }
 
-.product-card__price {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--gold-champagne);
-}
 
 .product-card__btn {
   width: 100%;

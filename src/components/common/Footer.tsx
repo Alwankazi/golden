@@ -1,8 +1,22 @@
+import { Link } from 'react-router-dom'
 import goldenLogo from '../../assets/golden-logo.png'
 import { footerLinks } from '../../data/siteData'
 import '../../styles/components/footer.css'
 
 export default function Footer() {
+  const renderLink = (link: { label: string; href: string }) => {
+    const isAnchor = link.href.startsWith('#')
+    const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:') || link.href.startsWith('tel:')
+    
+    if (isExternal) {
+      return <a href={link.href}>{link.label}</a>
+    }
+
+    const to = isAnchor && link.href !== '#' ? `/${link.href}` : link.href
+
+    return <Link to={to}>{link.label}</Link>
+  }
+
   return (
     <footer className="footer">
       <div className="container">
@@ -41,7 +55,7 @@ export default function Footer() {
               <ul>
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a href={link.href}>{link.label}</a>
+                    {renderLink(link)}
                   </li>
                 ))}
               </ul>

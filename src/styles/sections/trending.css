@@ -42,10 +42,6 @@
   font-size: 1.125rem;
 }
 
-.trending__info span {
-  font-weight: 600;
-  color: var(--gold-champagne);
-}
 
 @media (max-width: 900px) {
   .trending__grid { grid-template-columns: repeat(2, 1fr); }

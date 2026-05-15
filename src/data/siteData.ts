@@ -1,7 +1,7 @@
 export const navLinks = [
-  { label: 'Floral Essentials', href: '#products' },
-  { label: 'Cakes & Delights', href: '#products' },
-  { label: 'Green Heaven', href: '#products' },
+  { label: 'Floral Essentials', href: '/floral-essentials' },
+  { label: 'Cakes & Delights', href: '/cakes-and-delights' },
+  { label: 'Green Heaven', href: '/green-heaven' },
   { label: 'Gifts & Combos', href: '#products' },
   { label: 'Events', href: '#products' },
   { label: 'Contact', href: '#contact' },
@@ -9,9 +9,9 @@ export const navLinks = [
 
 export const footerLinks = {
   shop: [
-    { label: 'Floral Essentials', href: '#' },
-    { label: 'Cakes & Delights', href: '#' },
-    { label: 'Green Heaven', href: '#' },
+    { label: 'Floral Essentials', href: '/floral-essentials' },
+    { label: 'Cakes & Delights', href: '/cakes-and-delights' },
+    { label: 'Green Heaven', href: '/green-heaven' },
     { label: 'Gifts & Combos', href: '#' },
     { label: 'Events', href: '#' },
   ],

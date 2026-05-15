@@ -29,35 +29,31 @@ export const heroSlides = [
 export const products = [
   {
     name: 'Classic Red',
-    price: '$195',
     desc: '24 premium Ecuadorian roses in signature wrap',
     image: '/images/product_classic_red_1778579071178.png',
   },
   {
     name: 'Infinite White',
-    price: '$295',
     desc: 'Preserved roses that last for years',
     image: '/images/product_infinite_white_1778579086264.png',
   },
   {
     name: 'Sculptural Mixed',
-    price: '$245',
     desc: 'Architectural rose arrangement',
     image: '/images/product_sculptural_mixed_1778579101127.png',
   },
   {
     name: 'The Single Rose',
-    price: '$85',
     desc: 'Elegant long-stemmed statement piece',
     image: '/images/product_handheld_rose_1778579149365.png',
   },
 ]
 
 export const trendingProducts = [
-  { name: 'Royal Bouquet', price: '$450', image: '/images/rose_hero_bouquet_luxury_1778579035653.png' },
-  { name: 'Gallery Cloche', price: '$350', image: '/images/rose_hero_infinite_gold_1778579053174.png' },
-  { name: 'Velvet Sculpt', price: '$295', image: '/images/rose_hero_sculptural_1778579019983.png' },
-  { name: 'Infinite Box', price: '$385', image: '/images/product_infinite_white_1778579086264.png' },
+  { name: 'Royal Bouquet', image: '/images/rose_hero_bouquet_luxury_1778579035653.png' },
+  { name: 'Gallery Cloche', image: '/images/rose_hero_infinite_gold_1778579053174.png' },
+  { name: 'Velvet Sculpt', image: '/images/rose_hero_sculptural_1778579019983.png' },
+  { name: 'Infinite Box', image: '/images/product_infinite_white_1778579086264.png' },
 ]
 
 export const blogPosts = [
@@ -151,10 +147,10 @@ export const occasions = [
 ]
 
 export const giftIdeas = [
-  { name: 'Hand Made Bouquet', price: '$120', image: '/images/rose_hero_bouquet_luxury_1778579035653.png' },
-  { name: 'Special Chocolates', price: '$45', image: '/images/corporate_rose_gift_1778579217711.png' },
-  { name: 'Flowers With Vase', price: '$180', image: '/images/lifestyle_rose_interior_1778579122104.png' },
-  { name: 'Customized Cakes', price: '$95', image: '/images/rose_hero_sculptural_1778579019983.png' },
-  { name: 'Luxury Candles', price: '$65', image: '/images/product_infinite_white_1778579086264.png' },
-  { name: 'Gift Card', price: '$50+', image: '/images/rose_hero_infinite_gold_1778579053174.png' },
+  { name: 'Hand Made Bouquet', image: '/images/rose_hero_bouquet_luxury_1778579035653.png' },
+  { name: 'Special Chocolates', image: '/images/corporate_rose_gift_1778579217711.png' },
+  { name: 'Flowers With Vase', image: '/images/lifestyle_rose_interior_1778579122104.png' },
+  { name: 'Customized Cakes', image: '/images/rose_hero_sculptural_1778579019983.png' },
+  { name: 'Luxury Candles', image: '/images/product_infinite_white_1778579086264.png' },
+  { name: 'Gift Card', image: '/images/rose_hero_infinite_gold_1778579053174.png' },
 ]

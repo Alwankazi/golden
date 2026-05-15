@@ -27,7 +27,6 @@ export default function Trending() {
               <img src={p.image} alt={p.name} loading="lazy" />
               <div className="trending__info">
                 <h4>{p.name}</h4>
-                <span>{p.price}</span>
               </div>
             </div>
           ))}
