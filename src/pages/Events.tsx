@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import MainLayout from '../layouts/MainLayout'
 import { eventsCategories, eventsItems } from '../data/eventsData'
 import '../styles/pages/inner-page.css'
+import '../styles/pages/events.css'
 
 export default function Events() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -53,29 +54,31 @@ export default function Events() {
             ))}
           </motion.div>
 
-          <motion.div layout className="floral-grid">
+          <div className="events-grid">
             <AnimatePresence mode="popLayout">
               {filteredItems.map(item => (
                 <motion.article 
                   key={item.id} 
-                  className="floral-card"
+                  className="event-card"
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <div className="floral-card__image-wrapper">
-                    <img src={item.image} alt={item.name} className="floral-card__image" loading="lazy" />
+                  <div className="event-card__image-wrapper">
+                    <img src={item.image} alt={item.name} className="event-card__image" loading="lazy" />
                   </div>
-                  <span className="floral-card__category">{item.category}</span>
-                  <h3 className="floral-card__title">{item.name}</h3>
-                  <p className="floral-card__desc">{item.desc}</p>
-                  <button className="floral-card__btn">View Details</button>
+                  <div className="event-card__overlay">
+                    <span className="event-card__category">{item.category}</span>
+                    <h3 className="event-card__title">{item.name}</h3>
+                    <p className="event-card__desc">{item.desc}</p>
+                    <div className="event-card__link">View Event Gallery</div>
+                  </div>
                 </motion.article>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
       </main>
     </MainLayout>

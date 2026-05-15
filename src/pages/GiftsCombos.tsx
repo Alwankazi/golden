@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import MainLayout from '../layouts/MainLayout'
 import { giftsCategories, giftsItems } from '../data/giftsData'
 import '../styles/pages/inner-page.css'
+import '../styles/pages/gifts-combos.css'
 
 export default function GiftsCombos() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -53,29 +54,31 @@ export default function GiftsCombos() {
             ))}
           </motion.div>
 
-          <motion.div layout className="floral-grid">
+          <div className="gifts-grid">
             <AnimatePresence mode="popLayout">
               {filteredItems.map(item => (
                 <motion.article 
                   key={item.id} 
-                  className="floral-card"
+                  className="gift-row"
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <div className="floral-card__image-wrapper">
-                    <img src={item.image} alt={item.name} className="floral-card__image" loading="lazy" />
+                  <div className="gift-row__image-wrapper">
+                    <img src={item.image} alt={item.name} className="gift-row__image" loading="lazy" />
                   </div>
-                  <span className="floral-card__category">{item.category}</span>
-                  <h3 className="floral-card__title">{item.name}</h3>
-                  <p className="floral-card__desc">{item.desc}</p>
-                  <button className="floral-card__btn">View Details</button>
+                  <div className="gift-row__content">
+                    <span className="gift-row__category">{item.category}</span>
+                    <h3 className="gift-row__title">{item.name}</h3>
+                    <p className="gift-row__desc">{item.desc}</p>
+                    <button className="gift-row__btn">Explore Combo</button>
+                  </div>
                 </motion.article>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </div>
       </main>
     </MainLayout>

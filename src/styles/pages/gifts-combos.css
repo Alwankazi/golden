@@ -1,0 +1,123 @@
+/* Gifts & Combos Unique Layout */
+.gifts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.gift-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s var(--ease-out-expo);
+}
+
+.gift-row:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+/* Alternate image position */
+.gift-row:nth-child(even) {
+  direction: rtl;
+}
+
+.gift-row:nth-child(even) .gift-row__content {
+  direction: ltr; /* Reset text direction for content */
+}
+
+.gift-row__image-wrapper {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.gift-row__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+.gift-row:hover .gift-row__image {
+  transform: scale(1.05);
+}
+
+.gift-row__content {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fafaf9;
+}
+
+.gift-row__category {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--sage-green);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.gift-row__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--black);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.gift-row__desc {
+  font-size: 1rem;
+  color: var(--black-soft);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 450px;
+}
+
+.gift-row__btn {
+  align-self: flex-start;
+  padding: 14px 32px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease;
+  border: 1px solid var(--black);
+}
+
+.gift-row__btn:hover {
+  background: transparent;
+  color: var(--black);
+}
+
+@media (max-width: 991px) {
+  .gift-row__content {
+    padding: 40px;
+  }
+  .gift-row__title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gift-row {
+    grid-template-columns: 1fr;
+    direction: ltr !important;
+  }
+  .gift-row:nth-child(even) {
+    direction: ltr;
+  }
+  .gift-row__image-wrapper {
+    aspect-ratio: 4/3;
+  }
+  .gift-row__content {
+    padding: 32px;
+  }
+}
