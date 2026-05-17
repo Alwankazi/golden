@@ -94,3 +94,66 @@
     flex: 0 0 calc(80% - 12px);
   }
 }
+
+/* Navigation Controls */
+.occasions__controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.occasions__btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(233, 227, 214, 0.2);
+  background: transparent;
+  color: var(--off-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s var(--ease-out-expo);
+  position: relative;
+  overflow: hidden;
+}
+
+.occasions__btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold-gradient);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-out-expo);
+  z-index: 1;
+}
+
+.occasions__btn svg {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.occasions__btn:hover {
+  border-color: transparent;
+  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(181, 154, 93, 0.3);
+}
+
+.occasions__btn:hover::before {
+  opacity: 1;
+}
+
+.occasions__btn--left:hover svg {
+  transform: translateX(-2px);
+}
+
+.occasions__btn--right:hover svg {
+  transform: translateX(2px);
+}
+
+.occasions__btn:active {
+  transform: translateY(0);
+}

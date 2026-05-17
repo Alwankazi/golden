@@ -38,7 +38,7 @@ export default function Navigation() {
   }
 
   return (
-    <nav className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
+    <nav className={`nav ${(scrolled || ['/floral-essentials', '/cakes-and-delights', '/green-heaven', '/gifts-and-combos', '/events'].includes(location.pathname)) ? 'nav--scrolled' : ''}`}>
       <div className="nav__container container">
         <ul className={`nav__links nav__links--left ${menuOpen ? 'nav__links--open' : ''}`}>
           {navLinks.slice(0, 3).map((link) => (

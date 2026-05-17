@@ -3,6 +3,7 @@ import { occasions } from '../../data/homeData'
 import '../../styles/sections/occasions-carousel.css'
 
 export default function OccasionsCarousel() {
+  const sectionRef = useRef<HTMLDivElement>(null)
   const carouselRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -30,18 +31,36 @@ export default function OccasionsCarousel() {
 
     startScroll()
 
-    carousel.addEventListener('mouseenter', stopScroll)
-    carousel.addEventListener('mouseleave', startScroll)
+    const section = sectionRef.current
+    if (section) {
+      section.addEventListener('mouseenter', stopScroll)
+      section.addEventListener('mouseleave', startScroll)
+    }
 
     return () => {
       stopScroll()
-      carousel.removeEventListener('mouseenter', stopScroll)
-      carousel.removeEventListener('mouseleave', startScroll)
+      if (section) {
+        section.removeEventListener('mouseenter', stopScroll)
+        section.removeEventListener('mouseleave', startScroll)
+      }
     }
   }, [])
 
+  const handleScroll = (direction: 'left' | 'right') => {
+    const carousel = carouselRef.current
+    if (!carousel) return
+
+    const card = carousel.querySelector('.occasion-card')
+    const scrollAmount = card ? card.clientWidth + 24 : carousel.clientWidth / 2
+
+    carousel.scrollBy({
+      left: direction === 'left' ? -scrollAmount : scrollAmount,
+      behavior: 'smooth'
+    })
+  }
+
   return (
-    <section className="occasions">
+    <section className="occasions" ref={sectionRef}>
       <div className="container">
         <header className="occasions__header">
           <span className="section-label">Celebrate</span>
@@ -60,6 +79,29 @@ export default function OccasionsCarousel() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="occasions__controls">
+          <button 
+            className="occasions__btn occasions__btn--left" 
+            onClick={() => handleScroll('left')}
+            aria-label="Previous slide"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+          <button 
+            className="occasions__btn occasions__btn--right" 
+            onClick={() => handleScroll('right')}
+            aria-label="Next slide"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
     </section>
