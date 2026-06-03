@@ -122,6 +122,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
   padding-top: 32px;
 }
 
@@ -144,6 +146,24 @@
   color: var(--white);
 }
 
+.footer__credit {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: auto;
+  width: 100%;
+  text-align: right;
+}
+
+.footer__credit a {
+  color: var(--gold-champagne);
+  text-decoration: none;
+  transition: color 0.3s var(--ease-out-expo);
+}
+
+.footer__credit a:hover {
+  color: var(--white);
+}
+
 @media (max-width: 1024px) {
   .footer__grid { grid-template-columns: repeat(3, 1fr); }
   .footer__brand { grid-column: span 3; }
@@ -154,4 +174,5 @@
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer__brand { grid-column: span 2; }
   .footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+  .footer__credit { margin-left: 0; text-align: center; width: auto; }
 }
