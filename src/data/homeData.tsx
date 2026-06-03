@@ -5,6 +5,15 @@ import hero4 from '../assets/hero-img/lizzie-BqYoSL76lGo-unsplash.jpg'
 import newTrendsImg from '../assets/bloom-archive/new-trends.png'
 import bestSellerImg from '../assets/bloom-archive/best-seller.png'
 import newProductsImg from '../assets/bloom-archive/new-products.png'
+import handBouquetImg from '../assets/whatsapp-svg/selected-for-you/hand-made-bouquet.png'
+import specialChocolatesImg from '../assets/whatsapp-svg/selected-for-you/special-chocolates.png'
+import flowerVaseImg from '../assets/whatsapp-svg/selected-for-you/flowers-with-vase.png'
+import customizedCakesImg from '../assets/whatsapp-svg/selected-for-you/customized-cakes.png'
+import giftCombosImg from '../assets/whatsapp-svg/selected-for-you/gift-combos.png'
+import whiteRosesImg from '../assets/our-collection/white_roses.png'
+import infiniteBoxesImg from '../assets/trending-now/infinite_boxes.png'
+import eventsImg from '../assets/trending-now/events.png'
+import corporateImg from '../assets/stories-petals-roses/coorporate.png'
 
 export const heroSlides = [
   {
@@ -36,9 +45,9 @@ export const products = [
     image: '/images/product_classic_red_1778579071178.png',
   },
   {
-    name: 'Infinite White',
+    name: 'White Roses',
     desc: 'Preserved roses that last for years',
-    image: '/images/product_infinite_white_1778579086264.png',
+    image: whiteRosesImg,
   },
   {
     name: 'Sculptural Mixed',
@@ -55,14 +64,14 @@ export const products = [
 export const trendingProducts = [
   { name: 'Royal Bouquet', image: '/images/rose_hero_bouquet_luxury_1778579035653.png' },
   { name: 'Gallery Cloche', image: '/images/rose_hero_infinite_gold_1778579053174.png' },
-  { name: 'Velvet Sculpt', image: '/images/rose_hero_sculptural_1778579019983.png' },
-  { name: 'Infinite Box', image: '/images/product_infinite_white_1778579086264.png' },
+  { name: 'Events', image: eventsImg },
+  { name: 'Infinite Box', image: infiniteBoxesImg },
 ]
 
 export const blogPosts = [
   { title: 'The Anatomy of a Rose', date: 'December 2024', image: '/images/blog_macro_petals_1778579165508.png' },
   { title: 'In the Studio: Curating Form', date: 'November 2024', image: '/images/blog_studio_process_1778579181255.png' },
-  { title: 'Luxury Corporate Presence', date: 'October 2024', image: '/images/corporate_rose_gift_1778579217711.png' },
+  { title: 'Luxury Corporate Presence', date: 'October 2024', image: corporateImg },
 ]
 
 export const faqs = [
@@ -153,10 +162,9 @@ export const occasions = [
 ]
 
 export const giftIdeas = [
-  { name: 'Hand Made Bouquet', image: '/images/rose_hero_bouquet_luxury_1778579035653.png' },
-  { name: 'Special Chocolates', image: '/images/corporate_rose_gift_1778579217711.png' },
-  { name: 'Flowers With Vase', image: '/images/lifestyle_rose_interior_1778579122104.png' },
-  { name: 'Customized Cakes', image: '/images/rose_hero_sculptural_1778579019983.png' },
-  { name: 'Luxury Candles', image: '/images/product_infinite_white_1778579086264.png' },
-  { name: 'Gift Card', image: '/images/rose_hero_infinite_gold_1778579053174.png' },
+  { name: 'Hand Made Bouquet', image: handBouquetImg },
+  { name: 'Special Chocolates', image: specialChocolatesImg },
+  { name: 'Flowers With Vase', image: flowerVaseImg },
+  { name: 'Customized Cakes', image: customizedCakesImg },
+  { name: 'Gift Combos', image: giftCombosImg },
 ]

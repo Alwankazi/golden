@@ -10,10 +10,10 @@ export const floralItems = [
   },
   {
     id: 2,
-    name: 'White Orchids in Vase',
+    name: 'White Roses',
     category: 'Orchids',
     desc: 'Elegant white orchids perfect for any interior.',
-    image: '/images/product_infinite_white_1778579086264.png',
+    image: 'src/assets/our-collection/white_roses.png',
   },
   {
     id: 3,
