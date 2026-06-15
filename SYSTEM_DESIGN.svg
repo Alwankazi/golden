@@ -1,0 +1,260 @@
+<svg viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-size: 28px; font-weight: bold; fill: #1a1a1a; }
+      .section-title { font-size: 16px; font-weight: 600; fill: #fff; }
+      .label { font-size: 12px; fill: #333; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .sublabel { font-size: 11px; fill: #666; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+      .connection { stroke: #999; stroke-width: 2; fill: none; }
+      .connection-highlight { stroke: #d65c5c; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+      .box { fill: #f5f5f5; stroke: #ccc; stroke-width: 2; }
+      .box-primary { fill: #e8f4f8; stroke: #4a9fb5; stroke-width: 2; }
+      .box-secondary { fill: #fef5e7; stroke: #f39c12; stroke-width: 2; }
+      .box-tertiary { fill: #f0e6f6; stroke: #8e44ad; stroke-width: 2; }
+      .box-quaternary { fill: #e8f8f5; stroke: #16a085; stroke-width: 2; }
+      .box-danger { fill: #fadbd8; stroke: #e74c3c; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#fafafa"/>
+
+  <!-- Title -->
+  <text x="700" y="40" text-anchor="middle" class="title">Only Roses - System Architecture</text>
+  <text x="700" y="62" text-anchor="middle" class="sublabel">React + Vite Frontend Application</text>
+
+  <!-- ============= BROWSER/USER LAYER ============= -->
+  <g id="browser-layer">
+    <rect x="50" y="90" width="1300" height="80" class="box" rx="8"/>
+    <text x="70" y="115" class="section-title" style="fill: #333;">🌐 CLIENT LAYER - Browser</text>
+    <text x="70" y="135" class="label">User Interface (React Components) • Vite Dev Server • Hot Module Replacement</text>
+    <text x="70" y="155" class="label">HTML • CSS • JavaScript • Assets</text>
+  </g>
+
+  <!-- ============= BUILD TOOLS ============= -->
+  <g id="build-tools">
+    <rect x="50" y="190" width="280" height="120" class="box-secondary" rx="8"/>
+    <text x="70" y="215" class="section-title">⚙️ Build Tools</text>
+    <text x="70" y="240" class="label">Vite</text>
+    <text x="70" y="258" class="sublabel">• Fast bundling</text>
+    <text x="70" y="273" class="sublabel">• Dev server</text>
+    
+    <rect x="70" y="285" width="230" height="2" class="connection"/>
+    
+    <text x="70" y="305" class="label">TypeScript</text>
+    <text x="70" y="320" class="sublabel">• Type checking</text>
+  </g>
+
+  <!-- ============= DEPENDENCIES ============= -->
+  <g id="dependencies">
+    <rect x="360" y="190" width="280" height="120" class="box-secondary" rx="8"/>
+    <text x="380" y="215" class="section-title">📦 Core Dependencies</text>
+    <text x="380" y="240" class="label">React 19.2.6</text>
+    <text x="380" y="258" class="sublabel">• UI library</text>
+    
+    <text x="380" y="285" class="label">React Router 6.30.3</text>
+    <text x="380" y="303" class="sublabel">• Client routing</text>
+  </g>
+
+  <!-- ============= ANIMATION ============= -->
+  <g id="animation">
+    <rect x="670" y="190" width="280" height="120" class="box-secondary" rx="8"/>
+    <text x="690" y="215" class="section-title">🎬 Animation</text>
+    <text x="690" y="240" class="label">Framer Motion 12.38.0</text>
+    <text x="690" y="258" class="sublabel">• Smooth transitions</text>
+    <text x="690" y="273" class="sublabel">• Carousel effects</text>
+    <text x="690" y="288" class="sublabel">• Interactive gestures</text>
+  </g>
+
+  <!-- ============= DEPLOYMENT ============= -->
+  <g id="deployment">
+    <rect x="980" y="190" width="370" height="120" class="box-secondary" rx="8"/>
+    <text x="1000" y="215" class="section-title">🚀 Deployment</text>
+    <text x="1000" y="240" class="label">Vercel</text>
+    <text x="1000" y="258" class="sublabel">• Hosting & CDN</text>
+    <text x="1000" y="273" class="sublabel">• Static site generation</text>
+    <text x="1000" y="288" class="sublabel">• Redirect rules</text>
+  </g>
+
+  <!-- ============= APP STRUCTURE ============= -->
+  <g id="app-structure">
+    <rect x="50" y="340" width="1300" height="60" class="box-primary" rx="8"/>
+    <text x="70" y="365" class="section-title">🏗️ App Root Structure</text>
+    <text x="70" y="385" class="label">App.tsx → Suspense Boundary → ScrollToTop → Router (AppRoutes)</text>
+  </g>
+
+  <!-- ============= ROUTES/PAGES ============= -->
+  <g id="pages">
+    <rect x="50" y="430" width="1300" height="140" class="box-tertiary" rx="8"/>
+    <text x="70" y="455" class="section-title">📄 Pages (Lazy Loaded)</text>
+    
+    <rect x="70" y="470" width="180" height="80" class="box" rx="6"/>
+    <text x="80" y="490" class="label">HomePage</text>
+    <text x="80" y="507" class="sublabel">• Hero Section</text>
+    <text x="80" y="521" class="sublabel">• Featured Arrangements</text>
+    <text x="80" y="535" class="sublabel">• Newsletter</text>
+    
+    <rect x="270" y="470" width="180" height="80" class="box" rx="6"/>
+    <text x="280" y="490" class="label">FloralEssentials</text>
+    <text x="280" y="507" class="sublabel">• Rose Products</text>
+    <text x="280" y="521" class="sublabel">• Filtered Grid</text>
+    <text x="280" y="535" class="sublabel">• Product Data</text>
+    
+    <rect x="470" y="470" width="180" height="80" class="box" rx="6"/>
+    <text x="480" y="490" class="label">CakesDelights</text>
+    <text x="480" y="507" class="sublabel">• Cake Products</text>
+    <text x="480" y="521" class="sublabel">• Collections</text>
+    <text x="480" y="535" class="sublabel">• Order Info</text>
+    
+    <rect x="670" y="470" width="180" height="80" class="box" rx="6"/>
+    <text x="680" y="490" class="label">GreenHeaven</text>
+    <text x="680" y="507" class="sublabel">• Plant Products</text>
+    <text x="680" y="521" class="sublabel">• Care Guides</text>
+    <text x="680" y="535" class="sublabel">• Listings</text>
+    
+    <rect x="870" y="470" width="180" height="80" class="box" rx="6"/>
+    <text x="880" y="490" class="label">GiftsCombos</text>
+    <text x="880" y="507" class="sublabel">• Gift Sets</text>
+    <text x="880" y="521" class="sublabel">• Occasion Maps</text>
+    <text x="880" y="535" class="sublabel">• Bundle Offers</text>
+    
+    <rect x="1070" y="470" width="170" height="80" class="box" rx="6"/>
+    <text x="1080" y="490" class="label">Events • Contact</text>
+    <text x="1080" y="507" class="sublabel">• Event Planning</text>
+    <text x="1080" y="521" class="sublabel">• Contact Form</text>
+    <text x="1080" y="535" class="sublabel">• Legal Pages</text>
+  </g>
+
+  <!-- ============= LAYOUTS ============= -->
+  <g id="layouts">
+    <rect x="50" y="600" width="200" height="100" class="box-quaternary" rx="8"/>
+    <text x="70" y="625" class="section-title">🎭 Layouts</text>
+    <text x="70" y="645" class="label">MainLayout</text>
+    <text x="70" y="660" class="sublabel">• Navigation</text>
+    <text x="70" y="675" class="sublabel">• Footer</text>
+  </g>
+
+  <!-- ============= COMPONENTS - COMMON ============= -->
+  <g id="common-components">
+    <rect x="280" y="600" width="320" height="100" class="box-quaternary" rx="8"/>
+    <text x="300" y="625" class="section-title">🔧 Common Components</text>
+    <text x="300" y="645" class="label">Navigation • Footer</text>
+    <text x="300" y="660" class="sublabel">• ScrollToTop</text>
+    <text x="300" y="675" class="sublabel">• WhatsAppFloat</text>
+  </g>
+
+  <!-- ============= COMPONENTS - SECTIONS ============= -->
+  <g id="section-components">
+    <rect x="630" y="600" width="720" height="100" class="box-quaternary" rx="8"/>
+    <text x="650" y="625" class="section-title">📑 Section Components (HomePage)</text>
+    <text x="650" y="645" class="label">Hero • FeaturedArrangements • OccasionsCarousel • GiftIdeasSlider</text>
+    <text x="650" y="660" class="label">SocialProof • Products • Lifestyle • Trending • Blog • FAQ</text>
+    <text x="650" y="675" class="label">Newsletter • TrustBadges</text>
+  </g>
+
+  <!-- ============= DATA LAYER ============= -->
+  <g id="data-layer">
+    <rect x="50" y="730" width="1300" height="100" class="box-danger" rx="8"/>
+    <text x="70" y="755" class="section-title">💾 Data Layer (Static JSON/Objects)</text>
+    
+    <rect x="70" y="770" width="120" height="45" class="box" rx="4"/>
+    <text x="80" y="785" class="label">siteData.ts</text>
+    <text x="80" y="800" class="sublabel">• Nav links</text>
+    
+    <rect x="210" y="770" width="120" height="45" class="box" rx="4"/>
+    <text x="220" y="785" class="label">floralData.ts</text>
+    <text x="220" y="800" class="sublabel">• Rose products</text>
+    
+    <rect x="350" y="770" width="120" height="45" class="box" rx="4"/>
+    <text x="360" y="785" class="label">cakesData.ts</text>
+    <text x="360" y="800" class="sublabel">• Cake products</text>
+    
+    <rect x="490" y="770" width="120" height="45" class="box" rx="4"/>
+    <text x="500" y="785" class="label">giftsData.ts</text>
+    <text x="500" y="800" class="sublabel">• Gift combos</text>
+    
+    <rect x="630" y="770" width="140" height="45" class="box" rx="4"/>
+    <text x="640" y="785" class="label">greenHeavenData.ts</text>
+    <text x="640" y="800" class="sublabel">• Plant products</text>
+    
+    <rect x="790" y="770" width="120" height="45" class="box" rx="4"/>
+    <text x="800" y="785" class="label">eventsData.ts</text>
+    <text x="800" y="800" class="sublabel">• Event info</text>
+    
+    <rect x="930" y="770" width="120" height="45" class="box" rx="4"/>
+    <text x="940" y="785" class="label">homeData.tsx</text>
+    <text x="940" y="800" class="sublabel">• Home content</text>
+  </g>
+
+  <!-- ============= STYLING ============= -->
+  <g id="styling">
+    <rect x="50" y="860" width="300" height="100" class="box" rx="8"/>
+    <text x="70" y="885" class="section-title" style="fill: #333;">🎨 Styling</text>
+    <text x="70" y="905" class="label">CSS Modules/Files</text>
+    <text x="70" y="920" class="sublabel">• base.css</text>
+    <text x="70" y="935" class="sublabel">• Component-scoped styles</text>
+  </g>
+
+  <!-- ============= EXTERNAL INTEGRATIONS ============= -->
+  <g id="integrations">
+    <rect x="390" y="860" width="960" height="100" class="box-danger" rx="8"/>
+    <text x="410" y="885" class="section-title">🔗 External Integrations & Services</text>
+    
+    <rect x="430" y="900" width="140" height="45" class="box" rx="4"/>
+    <text x="440" y="920" class="label">WhatsApp API</text>
+    <text x="440" y="935" class="sublabel">• Chat widget</text>
+    
+    <rect x="600" y="900" width="140" height="45" class="box" rx="4"/>
+    <text x="610" y="920" class="label">Newsletter Service</text>
+    <text x="610" y="935" class="sublabel">• Email signup</text>
+    
+    <rect x="770" y="900" width="140" height="45" class="box" rx="4"/>
+    <text x="780" y="920" class="label">Analytics</text>
+    <text x="780" y="935" class="sublabel">• Traffic tracking</text>
+    
+    <rect x="940" y="900" width="140" height="45" class="box" rx="4"/>
+    <text x="950" y="920" class="label">Image CDN</text>
+    <text x="950" y="935" class="sublabel">• Assets/public/</text>
+    
+    <rect x="1110" y="900" width="210" height="45" class="box" rx="4"/>
+    <text x="1120" y="920" class="label">Vercel Analytics</text>
+    <text x="1120" y="935" class="sublabel">• Performance metrics</text>
+  </g>
+
+  <!-- ============= CONNECTIONS ============= -->
+  <!-- Build tools to App -->
+  <line x1="190" y1="310" x2="650" y2="340" class="connection"/>
+  <!-- Dependencies to App -->
+  <line x1="500" y1="310" x2="650" y2="340" class="connection"/>
+  <!-- App to Pages -->
+  <line x1="700" y1="400" x2="700" y2="430" class="connection"/>
+  <!-- Pages to Layouts -->
+  <line x1="150" y1="570" x2="150" y2="600" class="connection"/>
+  <!-- Pages to Components -->
+  <line x1="450" y1="570" x2="450" y2="600" class="connection"/>
+  <!-- Pages to Section Components -->
+  <line x1="700" y1="570" x2="900" y2="600" class="connection"/>
+  <!-- Pages to Data -->
+  <line x1="700" y1="570" x2="500" y2="730" class="connection"/>
+  <!-- Data to Styling -->
+  <line x1="200" y1="730" x2="180" y2="860" class="connection"/>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <text x="50" y="985" class="sublabel" style="font-weight: 600;">Legend:</text>
+    <rect x="130" y="970" width="60" height="15" class="box-primary" rx="2"/>
+    <text x="200" y="982" class="sublabel">Core Logic</text>
+    
+    <rect x="380" y="970" width="60" height="15" class="box-secondary" rx="2"/>
+    <text x="450" y="982" class="sublabel">Tooling</text>
+    
+    <rect x="600" y="970" width="60" height="15" class="box-tertiary" rx="2"/>
+    <text x="670" y="982" class="sublabel">Pages</text>
+    
+    <rect x="820" y="970" width="60" height="15" class="box-quaternary" rx="2"/>
+    <text x="890" y="982" class="sublabel">Components</text>
+    
+    <rect x="1080" y="970" width="60" height="15" class="box-danger" rx="2"/>
+    <text x="1150" y="982" class="sublabel">External/Data</text>
+  </g>
+</svg>

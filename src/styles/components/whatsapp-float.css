@@ -1,18 +1,30 @@
 /* WhatsApp Float */
-.whatsapp-float {
+.floating-actions {
   position: fixed;
   bottom: 32px;
   right: 32px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.whatsapp-float,
+.scroll-top-float {
   width: 56px;
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #25D366; /* Standard WhatsApp Green */
   border-radius: 50%;
-  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
   transition: all 0.5s var(--ease-out-expo);
-  z-index: 1000;
+}
+
+.whatsapp-float {
+  position: relative;
+  background: #25D366; /* Standard WhatsApp Green */
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
 }
 
 .whatsapp-float svg {
@@ -20,9 +32,37 @@
   height: 32px;
 }
 
+.scroll-top-float {
+  background: var(--black);
+  color: var(--white);
+  border: 1px solid rgba(181, 154, 93, 0.35);
+  box-shadow: 0 10px 25px rgba(22, 33, 25, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px) scale(0.96);
+}
+
+.scroll-top-float--visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-top-float svg {
+  width: 24px;
+  height: 24px;
+}
+
 .whatsapp-float:hover {
   transform: scale(1.1) translateY(-5px);
   box-shadow: 0 15px 35px rgba(37, 211, 102, 0.45);
+}
+
+.scroll-top-float:hover {
+  background: var(--gold);
+  color: var(--black);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(22, 33, 25, 0.25);
 }
 
 /* Subtle pulse animation */
@@ -41,14 +81,22 @@
 }
 
 @media (max-width: 768px) {
-  .whatsapp-float {
+  .floating-actions {
     bottom: 24px;
     right: 24px;
+    gap: 10px;
+  }
+  .whatsapp-float,
+  .scroll-top-float {
     width: 48px;
     height: 48px;
   }
   .whatsapp-float svg {
     width: 28px;
     height: 28px;
+  }
+  .scroll-top-float svg {
+    width: 22px;
+    height: 22px;
   }
 }

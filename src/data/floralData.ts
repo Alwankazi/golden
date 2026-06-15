@@ -1,6 +1,6 @@
 import whiteRosesImg from '../assets/our-collection/white_roses.png'
 
-export const floralCategories = ['All', 'Roses', 'Lilies', 'Orchids', 'Tulips', 'Accessories']
+export const floralCategories = ['All', 'Roses', 'Lilies', 'Orchids', 'Tulips']
 
 export const floralItems = [
   {
@@ -32,13 +32,6 @@ export const floralItems = [
     image: '/images/rose_hero_infinite_gold_1778579053174.png',
   },
   {
-    id: 5,
-    name: 'Luxury Velvet Ribbon',
-    category: 'Accessories',
-    desc: 'Premium velvet ribbon for bespoke wrapping.',
-    image: '/images/corporate_rose_gift_1778579217711.png',
-  },
-  {
     id: 6,
     name: 'Tulip Harmony',
     category: 'Tulips',
@@ -51,12 +44,5 @@ export const floralItems = [
     category: 'Roses',
     desc: 'Avant-garde arrangement for modern spaces.',
     image: '/images/rose_hero_sculptural_1778579019983.png',
-  },
-  {
-    id: 8,
-    name: 'Signature Glass Cloche',
-    category: 'Accessories',
-    desc: 'Hand-blown glass dome for displaying blooms.',
-    image: '/images/blog_macro_petals_1778579165508.png',
   },
 ]
