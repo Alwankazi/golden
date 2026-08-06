@@ -10,6 +10,7 @@ const Events = lazy(() => import('../pages/Events'))
 const Contact = lazy(() => import('../pages/Contact'))
 const PrivacyPolicy = lazy(() => import('../pages/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('../pages/TermsOfService'))
+const NotFound = lazy(() => import('../pages/NotFound'))
 
 export default function AppRoutes() {
   return (
@@ -23,7 +24,7 @@ export default function AppRoutes() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
-      <Route path="*" element={<HomePage />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }

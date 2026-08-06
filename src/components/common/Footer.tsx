@@ -9,7 +9,7 @@ export default function Footer() {
     const isExternal = link.href.startsWith('http') || link.href.startsWith('mailto:') || link.href.startsWith('tel:')
     
     if (isExternal) {
-      return <a href={link.href}>{link.label}</a>
+      return <a href={link.href} target="_blank" rel="noopener noreferrer">{link.label}</a>
     }
 
     const to = isAnchor && link.href !== '#' ? `/${link.href}` : link.href
@@ -28,26 +28,6 @@ export default function Footer() {
               <sup>®</sup>
             </div>
             <p>The world's most sculptural roses, elegantly curated for life's meaningful moments.</p>
-            <div className="footer__social">
-              <a href="#" aria-label="Instagram">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                  <rect x="3" y="3" width="18" height="18" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17" cy="7" r="1" />
-                </svg>
-              </a>
-              <a href="#" aria-label="Facebook">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                  <path d="M15 3h-3a4 4 0 00-4 4v3H5v4h3v7h4v-7h3l1-4h-4V7a1 1 0 011-1h3" />
-                </svg>
-              </a>
-              <a href="#" aria-label="Pinterest">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-                  <path d="M12 3a9 9 0 00-3.2 17.4l1.2-4.4a4.7 4.7 0 111.8 1" />
-                  <path d="M12 9.2c-1.7 0-2.8 1.6-2.4 3.1.4 1.5 1.2 2.6 1 3.9" />
-                </svg>
-              </a>
-            </div>
           </div>
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title} className="footer__col">
@@ -61,6 +41,19 @@ export default function Footer() {
               </ul>
             </div>
           ))}
+          <div className="footer__col">
+            <h4>Socials</h4>
+            <div className="footer__social">
+              <a href="https://www.instagram.com/goldenbouquetqtr?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17" cy="7" r="1" />
+                </svg>
+                <span>@goldenbouquetqtr</span>
+              </a>
+            </div>
+          </div>
         </div>
         <div className="footer__bottom">
           <p>© {new Date().getFullYear()} <span className="footer__brand-text--small">Golden Bouquet</span>. All rights reserved.</p>

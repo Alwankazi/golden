@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import '../../styles/sections/lifestyle.css'
 
 export default function Lifestyle() {
@@ -32,9 +33,9 @@ export default function Lifestyle() {
               From glass dome presentations to signature black boxes with gold branding, every detail is designed to
               impress.
             </p>
-            <a href="#products" className="lifestyle__cta">
+            <Link to="/floral-essentials" className="lifestyle__cta">
               View Collection
-            </a>
+            </Link>
           </div>
         </div>
       </div>

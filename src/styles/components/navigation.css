@@ -72,7 +72,6 @@
 @media (max-width: 1024px) {
   .nav {
     padding: 16px 0;
-    background: rgb(22, 33, 25);
   }
 
   .nav__container {

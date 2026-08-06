@@ -1,7 +1,7 @@
-# Only Roses - Design System & Brand Guidelines
+# Golden Bouquet - Design System & Brand Guidelines
 
 ## Overview
-Only Roses is a luxury floral e-commerce brand with a warm, sophisticated aesthetic. The design system balances elegance with approachability, using botanical inspirations and warm metallics to create a premium yet inviting experience.
+Golden Bouquet is a luxury floral e-commerce brand with a warm, sophisticated aesthetic. The design system balances elegance with approachability, using botanical inspirations and warm metallics to create a premium yet inviting experience.
 
 ---
 
@@ -109,6 +109,8 @@ Consistent spacing using 8px base unit:
 - **Grid gap**: 24px-32px (space-lg to space-xl)
 - **Text spacing**: 16px (space-md)
 
+> **Note:** these `--space-*` values are a convention, not CSS custom properties defined in code today. Only color, font, and easing vars exist as real `:root` vars (`src/index.css`). Hardcode spacing values consistently per this scale; don't reference a nonexistent `var(--space-*)`.
+
 ---
 
 ## 🎯 Component Design System
@@ -209,6 +211,62 @@ letter-spacing: 0.2em;
 text-transform: uppercase;
 color: var(--sage-green);
 margin-bottom: 12px;
+```
+
+### Modal / Overlay
+
+Real pattern, used by Events (`src/pages/Events.tsx`) and GiftsCombos (`src/pages/GiftsCombos.tsx`) detail modals. Styles live in `src/styles/pages/floral-essentials.css` — despite the filename, both pages share these classes (not yet extracted into a standalone component; known duplication to clean up later if a shared `<Modal>` component gets built).
+
+```css
+.floral-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 26, 19, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.floral-modal {
+  width: 100%;
+  max-width: 1000px;
+  background: var(--white);
+  border: 1px solid rgba(181, 154, 93, 0.25);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  display: flex;
+  max-height: 90vh;
+}
+
+.floral-modal__left  { flex: 1.1; background: #f9f9f9; }   /* image side */
+.floral-modal__right { flex: 1; padding: 48px; overflow-y: auto; } /* content side */
+
+.floral-modal__close-btn {
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid rgba(22, 33, 25, 0.1);
+}
+.floral-modal__close-btn:hover {
+  background: var(--black);
+  color: var(--white);
+}
+
+.floral-modal__category { font-size: 0.8125rem; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; font-weight: 600; }
+.floral-modal__title    { font-family: var(--font-display); font-size: 2.25rem; color: var(--black); line-height: 1.15; }
+.floral-modal__desc     { font-size: 0.95rem; color: var(--black-soft); line-height: 1.6; opacity: 0.9; }
+```
+
+Layout: full-screen dark overlay, centered panel, split image-left / content-right (image bg `#f9f9f9`). Sharp corners (no `border-radius` on the panel itself — contrasts with card's `8px`).
+
+Framer Motion (`AnimatePresence` + `motion.div`), spring transition:
+```javascript
+transition={{ type: "spring", duration: 0.5 }}
 ```
 
 ---
@@ -572,10 +630,11 @@ Before launching any page or component:
 - **Font Source**: Google Fonts (Cormorant Garamond, Jost)
 - **Color Tool**: Use CSS variables (no hardcoded colors)
 - **Animation Library**: Framer Motion
-- **Design Files**: [Link to Figma/Adobe XD]
-- **Component Library**: React components in `src/components/`
+- **Icons**: No icon library in use — raw SVG assets or Unicode glyphs (e.g. `✕` for close buttons)
+- **Design Files**: none — this doc + code are the source of truth
+- **Component Library**: React components in `src/components/` (no shared `ui/` primitives yet — buttons/cards/modals are implemented ad hoc per page)
 
 ---
 
-*Last Updated: 2026-06-14*  
-*Design System Version: 1.0*
+*Last Updated: 2026-07-18*  
+*Design System Version: 1.1*

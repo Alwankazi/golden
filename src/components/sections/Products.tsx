@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { products } from '../../data/homeData'
+import QuickInquiryModal, { type QuickInquiryItem } from '../common/QuickInquiryModal'
 import '../../styles/sections/products.css'
 
 export default function Products() {
   const [visible, setVisible] = useState(false)
+  const [selectedItem, setSelectedItem] = useState<QuickInquiryItem | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -32,11 +34,12 @@ export default function Products() {
                 <h3>{p.name}</h3>
                 <p className="product-card__desc">{p.desc}</p>
               </div>
-              <button className="product-card__btn">Quick Buy</button>
+              <button className="product-card__btn" onClick={() => setSelectedItem(p)}>Quick Buy</button>
             </article>
           ))}
         </div>
       </div>
+      <QuickInquiryModal item={selectedItem} onClose={() => setSelectedItem(null)} />
     </section>
   )
 }

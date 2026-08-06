@@ -93,6 +93,7 @@
   background: #F1F5F2; /* Light Sage Green */
   border-radius: 4px;
   padding: 40px;
+  cursor: pointer;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;

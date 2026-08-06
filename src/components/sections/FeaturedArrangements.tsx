@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import type { TouchEvent } from 'react'
 import { featuredArrangements } from '../../data/homeData'
+import QuickInquiryModal, { type QuickInquiryItem } from '../common/QuickInquiryModal'
 import '../../styles/sections/featured-arrangements.css'
 
 export default function FeaturedArrangements() {
   const [activeSlide, setActiveSlide] = useState(0)
+  const [selectedItem, setSelectedItem] = useState<QuickInquiryItem | null>(null)
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
 
@@ -44,7 +46,11 @@ export default function FeaturedArrangements() {
             <span className="section-label featured__label">Signature Creations</span>
             <h2 className="featured__title">FRESHNESS IN EVERY BLOOM</h2>
             <p className="featured__subtitle">EXQUISITE FLORAL ARRANGEMENTS FOR EVERY OCCASION</p>
-            <a href="#archive" className="featured__cta">
+            <button
+              type="button"
+              className="featured__cta"
+              onClick={() => setSelectedItem(featuredArrangements[activeSlide])}
+            >
               OUR BLOOM ARCHIVE
               <svg
                 width="20"
@@ -59,7 +65,7 @@ export default function FeaturedArrangements() {
                 <path d="M5 12h14"></path>
                 <path d="M12 5l7 7-7 7"></path>
               </svg>
-            </a>
+            </button>
           </div>
         </div>
 
@@ -74,7 +80,7 @@ export default function FeaturedArrangements() {
             >
               {featuredArrangements.map((item, index) => (
                 <div key={index} className="featured__card-wrapper">
-                  <div className="featured__card">
+                  <div className="featured__card" onClick={() => setSelectedItem(item)}>
                     <div className="featured__card-image-box">
                       <img src={item.image} alt={item.name} className="featured__card-img" />
                       <div className="featured__card-logo">GB</div>
@@ -132,6 +138,7 @@ export default function FeaturedArrangements() {
           </div>
         </div>
       </div>
+      <QuickInquiryModal item={selectedItem} onClose={() => setSelectedItem(null)} />
     </section>
   )
 }
