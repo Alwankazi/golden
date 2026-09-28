@@ -17,6 +17,37 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Auto-close menu on route changes
+  const [prevPathname, setPrevPathname] = useState(location.pathname)
+  if (prevPathname !== location.pathname) {
+    setPrevPathname(location.pathname)
+    setMenuOpen(false)
+  }
+
+  // Prevent background scrolling when menu is open & handle Escape key
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden'
+      document.body.classList.add('menu-open')
+    } else {
+      document.body.style.overflow = ''
+      document.body.classList.remove('menu-open')
+    }
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && menuOpen) {
+        setMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.body.style.overflow = ''
+      document.body.classList.remove('menu-open')
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [menuOpen])
+
   // Helper to determine if the link is an anchor link or a route
   const renderLink = (link: { label: string; href: string }) => {
     const isAnchor = link.href.startsWith('#')
@@ -37,46 +68,61 @@ export default function Navigation() {
     )
   }
 
+  const isInnerPage = ['/floral-essentials', '/cakes-and-delights', '/green-heaven', '/gifts-and-combos', '/events', '/contact', '/privacy-policy', '/terms-of-service'].includes(location.pathname)
+
   return (
-    <nav className={`nav ${(scrolled || ['/floral-essentials', '/cakes-and-delights', '/green-heaven', '/gifts-and-combos', '/events', '/contact', '/privacy-policy', '/terms-of-service'].includes(location.pathname)) ? 'nav--scrolled' : ''}`}>
-      <div className="nav__container container">
-        <ul className={`nav__links nav__links--left ${menuOpen ? 'nav__links--open' : ''}`}>
-          {navLinks.slice(0, 3).map((link) => (
-            <li key={link.label}>
-              {renderLink(link)}
-            </li>
-          ))}
-        </ul>
+    <>
+      <nav className={`nav ${(scrolled || isInnerPage) ? 'nav--scrolled' : ''} ${menuOpen ? 'nav--menu-open' : ''}`}>
+        <div className="nav__container container">
+          {/* Desktop Left Nav */}
+          <ul className="nav__links nav__links--left">
+            {navLinks.slice(0, 3).map((link) => (
+              <li key={link.label}>
+                {renderLink(link)}
+              </li>
+            ))}
+          </ul>
 
-        <Link to="/" className="nav__logo">
-          <img src={goldenLogo} alt="Golden Bouquet" className="nav__logo-img" />
-        </Link>
+          {/* Logo */}
+          <Link to="/" className="nav__logo" onClick={() => setMenuOpen(false)}>
+            <img src={goldenLogo} alt="Golden Bouquet" className="nav__logo-img" />
+          </Link>
 
-        <ul className={`nav__links nav__links--right ${menuOpen ? 'nav__links--open' : ''}`}>
-          {navLinks.slice(3).map((link) => (
-            <li key={link.label}>
-              {renderLink(link)}
-            </li>
-          ))}
-        </ul>
+          {/* Desktop Right Nav */}
+          <ul className="nav__links nav__links--right">
+            {navLinks.slice(3).map((link) => (
+              <li key={link.label}>
+                {renderLink(link)}
+              </li>
+            ))}
+          </ul>
 
-        <ul className={`nav__links nav__links--mobile ${menuOpen ? 'nav__links--open' : ''}`}>
+          {/* Mobile / Overlay Menu Toggle Button */}
+          <button
+            className={`nav__menu-btn ${menuOpen ? 'nav__menu-btn--open' : ''}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={menuOpen}
+          >
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      {/* Full Viewport Menu Overlay covering header and full screen */}
+      <div 
+        className={`nav__overlay ${menuOpen ? 'nav__overlay--open' : ''}`}
+        aria-hidden={!menuOpen}
+      >
+        <ul className="nav__overlay-links">
           {navLinks.map((link) => (
             <li key={link.label}>
               {renderLink(link)}
             </li>
           ))}
         </ul>
-
-        <button
-          className="nav__menu-btn"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span></span>
-          <span></span>
-        </button>
       </div>
-    </nav>
+    </>
   )
 }
