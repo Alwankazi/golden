@@ -81,7 +81,7 @@ export default function Contact() {
             <div className="contact-info-section fade-in-up stagger-1">
               
               {/* Call Us Card */}
-              <a href="tel:+97474758555" className="contact-card">
+              <a href="tel:+97470768555" className="contact-card">
                 <div className="contact-card__icon-wrapper">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -90,7 +90,7 @@ export default function Contact() {
                 <div className="contact-card__content">
                   <span className="contact-card__label">Direct Line</span>
                   <h3 className="contact-card__title">Call or WhatsApp</h3>
-                  <p className="contact-card__value">+974 7475 8555</p>
+                  <p className="contact-card__value">+974 7076 8555</p>
                 </div>
                 <div className="contact-card__action">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

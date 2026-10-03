@@ -18,6 +18,6 @@ export const footerLinks = {
   contact: [
     { label: 'Contact Us', href: '/contact' },
     { label: 'info@golden-bouquet.com', href: 'mailto:info@golden-bouquet.com' },
-    { label: '+974 7475 8555', href: 'tel:+97474758555' },
+    { label: '+974 7076 8555', href: 'tel:+97470768555' },
   ],
 }
